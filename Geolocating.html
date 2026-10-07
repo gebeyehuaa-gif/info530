@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Address Geocoder</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 30px;
+			background: #f7f7f7;
+		}
+
+		main {
+			max-width: 700px;
+			margin: 0 auto;
+			background: white;
+			padding: 24px;
+			border-radius: 8px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.08);
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			max-width: 500px;
+		}
+
+		input, select, button {
+			font-size: 16px;
+			padding: 10px;
+		}
+
+		input, select {
+			width: 100%;
+			max-width: 420px;
+		}
+
+		button {
+			width: fit-content;
+			cursor: pointer;
+		}
+
+		#message, #result {
+			margin-top: 20px;
+			line-height: 1.5;
+		}
+
+		#map-container {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>Enter your address</h1>
+
+		<form id="address-form">
+			<label for="address">Complete one-line address</label>
+			<input id="address" name="address" type="text" placeholder="123 Main St, City, Country" required>
+
+			<label for="benchmark">Choose benchmark</label>
+			<select id="benchmark" name="benchmark" required>
+				<option value="">Loading benchmarks...</option>
+			</select>
+
+			<button type="submit">Submit</button>
+		</form>
+
+		<p id="message" aria-live="polite"></p>
+		<div id="result" aria-live="polite"></div>
+		<div id="map-container" aria-live="polite"></div>
+
+		<p><small>Note: For browser testing, disable CORS in the browser or run Chrome with the CORS flag disabled.</small></p>
+	</main>
+
+	<script src="Geolocating.js"></script>
+</body>
+</html>
